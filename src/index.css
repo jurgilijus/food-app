@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Signika', sans-serif;
+}
+.popular-conteiner{
+    margin: 4rem 10rem;
+    background-color: aqua;
+}
+.popular-card{
+    
+    max-width: 25rem;
+    border-radius: 2rem;
+    background-color: salmon;
+}
+img{
+    border-radius: 2rem;
+    max-width: 25rem;
+    padding-bottom: 1rem;
+}
+p{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
