@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Splide, SplideSlide} from '@splidejs/react-splide'
+import {Link} from 'react-router-dom'
 
 // CSS
 import '../index.css'
@@ -31,17 +32,20 @@ function Pupular() {
   
   return (
     <div className='popular-conteiner'>
+      <h4>Popular recepies</h4>
       <Splide options={{
-            perPage: 2,
-            gap: "5rem",
+            perPage: 6,
+            gap: "1rem",
             arrows: false,
             pagination: false,
             drag: "free",
+            autoWidth: true,
+            width: "95%",
             breakpoints: {
-            2425: { perPage: 4, gap: "2rem",},
-            1945: { perPage: 3, gap: "2rem",},
-            1440: { perPage: 2, gap: "2rem",},
-            950: { perPage: 1, gap: "2rem",},
+            2425: { perPage: 5,},
+            1945: { perPage: 4,},
+            1440: { perPage: 2,},
+            950: { perPage: 1,},
             640 : { gap: 0 },
             },
           }}>
@@ -49,11 +53,13 @@ function Pupular() {
       {popular.map((recipe) => {
         return(
           <SplideSlide key={recipe.id}>
-          <div  className='popular-card'>
-            
-            <img src={recipe.image} alt={recipe.title} />
-            <p>{recipe.title}</p>
-          </div>
+            <Link to={'/recipe/' + recipe.id}>
+              <div  className='popular-card'>
+                
+                <img src={recipe.image} alt={recipe.title} />
+                <h5>{recipe.title}</h5>
+              </div>
+          </Link>
           </SplideSlide>
         );
       })}

@@ -1,11 +1,15 @@
+import Category from "./Components/Category";
 import Pages from "./Pages/Pages";
+import { BrowserRouter } from "react-router-dom";
+import Search from "./Components/Search";
 
 function App() {
   return (
-    <div>
-      <h1>Hello</h1>
+    <BrowserRouter>
+      <Search />
+      <Category />
       <Pages />
-    </div>
+    </BrowserRouter>
   );
 }
 
