@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 
+
 function Searched() {
     
     const [searchedRecipes, setSearchedRecipes] = useState([])
@@ -14,7 +15,7 @@ function Searched() {
   }
   
   useEffect(() => {
-    getSearched()
+    getSearched(params.search)
   },[params.search])
     
   return (
@@ -22,7 +23,7 @@ function Searched() {
       {
         searchedRecipes.map((item) => {
             return(
-                <Link to={'/recipe/' + item.id} key={item.id}>
+                <Link to={'/recipes/' + item.id} key={item.id}>
                 <div>
                     <img src={item.image} alt={item.title} />
                     <h5>{item.title}</h5>
