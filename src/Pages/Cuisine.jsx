@@ -7,9 +7,10 @@ function Cuisine() {
   
   const [cuisine, setCuisine] = useState([])
   let params = useParams()
+  const apiKey = process.env.REACT_APP_API_KEY
   
   const getCuisine = async (name) =>{
-    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&number=9&cuisine=${name}`)
+    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=9&cuisine=${name}`)
     const recipes = await data.json()
     setCuisine(recipes.results)
   }

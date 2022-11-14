@@ -12,7 +12,6 @@ function Recipe() {
         const detailData = await data.json()
         setDetails(detailData)
     }
-    console.log(details);
     useEffect (() => {
         fechtDetails() // eslint-disable-next-line
     },[params.name])
