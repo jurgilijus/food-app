@@ -16,20 +16,24 @@ function Searched() {
   }
   
   useEffect(() => {
-    getSearched(params.search)
+    getSearched(params.search) // eslint-disable-next-line
   },[params.search])
     
+  
+  
   return (
     <section className='cuisine-conteiner'>
       {
         searchedRecipes.map((item) => {
             return(
-                <Link to={'/recipes/' + item.id} key={item.id}>
+              <div key={item.id}>
+              <Link to={'/recipes/' + item.id} className='cuisine-card'>
                 <div>
-                    <img src={item.image} alt={item.title} />
+                    <img src={item.image} alt={item.title} className='cuisine-img'/>
                     <h5>{item.title}</h5>
                 </div>
-                </Link>
+              </Link>
+              </div>
             )
         })
       }

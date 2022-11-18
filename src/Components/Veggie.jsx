@@ -35,9 +35,12 @@ function Veggie() {
             gap: "1rem",
             arrows: false,
             pagination: false,
+            autoWidth: true,
             drag: "free",
-            width: "95%",
-            autoWidth: "10%",
+            width: "100%",
+            direction: "vertical",
+            wheel: true,
+            releaseWheel: true,
             breakpoints: {
             2425: { perPage: 5,},
             1945: { perPage: 4,},
@@ -54,6 +57,7 @@ function Veggie() {
             <div  className='popular-card'>
               <img src={recipe.image} alt={recipe.title} />
               <h5>{recipe.title}</h5>
+              <label>About: {recipe.readyInMinutes} min</label>
             </div>
           </Link>
           </SplideSlide>

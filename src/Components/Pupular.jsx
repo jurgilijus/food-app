@@ -3,17 +3,22 @@ import {Splide, SplideSlide} from '@splidejs/react-splide'
 import {Link} from 'react-router-dom'
 
 
+
 // CSS
 import '../index.css'
 import '@splidejs/react-splide/css';
 
+
 function Pupular() {
   
   const [popular, setPopular] = useState([])
+  // console.log(popular);
   
   useEffect(() =>{
     getPopular()
   },[])
+  
+  
   
   const getPopular = async () => {
     
@@ -40,7 +45,10 @@ function Pupular() {
             pagination: false,
             drag: "free",
             autoWidth: true,
-            width: "95%",
+            width: "100%",
+            direction: "vertical",
+            wheel: true,
+            releaseWheel: true,
             breakpoints: {
             2425: { perPage: 5,},
             1945: { perPage: 4,},
@@ -49,15 +57,14 @@ function Pupular() {
             640 : { gap: 0 },
             },
           }}>
-        
       {popular.map((recipe) => {
         return(
           <SplideSlide key={recipe.id}>
             <Link to={'/recipes/' + recipe.id}>
               <div  className='popular-card'>
-                
                 <img src={recipe.image} alt={recipe.title} />
                 <h5>{recipe.title}</h5>
+                <label>About: {recipe.readyInMinutes} min</label>
               </div>
             </Link>
           </SplideSlide>
