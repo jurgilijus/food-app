@@ -1,32 +1,34 @@
 import React, {useState, useEffect} from 'react'
 // import {motion} from 'framer-motion'
 import {Link,useParams} from 'react-router-dom'
-
+import {AiFillLike} from 'react-icons/ai'
 
 function Cuisine() {
   
   const [cuisine, setCuisine] = useState([])
   let params = useParams()
   
+  const apiKey = process.env.REACT_APP_API_KEY
+  
   const getCuisine = async (name) =>{
     const check = localStorage.getItem('cuisine')
-    const apiKey = process.env.REACT_APP_API_KEY
+    
     if (check){
       setCuisine(JSON.parse(check))
   } else {
     const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch/?apiKey=${apiKey}&number=9&cuisine=${name}`)
     const recipes = await data.json()
     setCuisine(recipes.results)
-    
     localStorage.setItem('cuisine', JSON.stringify(recipes.results))
+    
   }
 }
-  
+
   useEffect(() =>{
     getCuisine(params.type) // eslint-disable-next-line
   },[params.type])
   
-  // console.log(cuisine)
+  
   return (
     <section className='cuisine-conteiner'>
       {
@@ -36,6 +38,10 @@ function Cuisine() {
             <div className='cuisine-card'>
               <img className='cuisine-img' src={item.image} alt={item.title} />
               <h5>{item.title}</h5>
+              <div className="lables">
+              <label>About: {item.readyInMinutes}</label>
+              <label className='aligne-like'><AiFillLike size={15}/> {item.aggregateLikes}</label>
+              </div>
             </div>
             </Link>
           )

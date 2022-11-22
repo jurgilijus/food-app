@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Splide, SplideSlide} from '@splidejs/react-splide'
 import {Link} from 'react-router-dom'
+import {AiFillLike} from 'react-icons/ai'
 
 function Veggie() {
   
@@ -57,8 +58,11 @@ function Veggie() {
             <div  className='popular-card'>
               <img src={recipe.image} alt={recipe.title} />
               <h5>{recipe.title}</h5>
-              <label>About: {recipe.readyInMinutes} min</label>
+              <div className="lables">
+              <label>About: {recipe.readyInMinutes} min</label><label className='aligne-like'><AiFillLike size={15}/> {recipe.aggregateLikes}</label>
+              </div>
             </div>
+            
           </Link>
           </SplideSlide>
         );

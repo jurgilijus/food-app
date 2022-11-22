@@ -4,15 +4,16 @@ import {Link} from 'react-router-dom'
 
 
 function Searched() {
-    
+
     const [searchedRecipes, setSearchedRecipes] = useState([])
     let params = useParams()
     const apiKey = process.env.REACT_APP_API_KEY
     
     const getSearched = async (name) =>{
-    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=9&query=${name}`)
+    const data = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=50&query=${name}&ReadyTime`)
     const recipes = await data.json()
     setSearchedRecipes(recipes.results)
+    
   }
   
   useEffect(() => {
@@ -33,6 +34,7 @@ function Searched() {
                     <h5>{item.title}</h5>
                 </div>
               </Link>
+          
               </div>
             )
         })
