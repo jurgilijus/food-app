@@ -56,7 +56,7 @@ h5{
     font-size: 1.2rem;
     font-weight: bold;
     color: #222222;
-    /* padding: 1.5rem 0rem; */
+    padding: 1.5rem 0rem;
 }
 a:link{
     text-decoration: none;
@@ -192,8 +192,7 @@ svg{
 .cuisine-img {
     display: block;
     width: 100%;
-    height: 70%;
-    margin-top: -1.8rem;
+    height: 100%;
 }
 /* Search field */
 .search-conteiner{
@@ -279,17 +278,19 @@ button:hover{
         margin: 5% 5%;
     }
     .popular-card {
-        margin: 3rem 0rem;
         max-width: 15rem;
         background-color: #F2F3EF;
         height: 278px;
-        gap: -2rem;
+        
     }
     h5{
-        padding: 0rem 2rem;
+        padding: 0.5rem 2rem;
         margin: 0;
         text-align: center;
         margin-left: -1rem;
+    }
+    .cuisine-card{
+        min-width: 14rem !important;
     }
     .category-arrow {
         left: 10.2rem;  
@@ -307,6 +308,11 @@ button:hover{
     }
    .splide__slide{
     margin-right: 1rem !important;
+   }
+   .cuisine-card{
+    display: block;
+    width: 100%;
+    height: 100%;
    }
 }
 @media (max-width: 1050px) {

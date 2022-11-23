@@ -39,8 +39,10 @@ function Cuisine() {
               <img className='cuisine-img' src={item.image} alt={item.title} />
               <h5>{item.title}</h5>
               <div className="lables">
-              <label>About: {item.readyInMinutes}</label>
+            
+              <label>About: {item.readyInMinutes} min</label>
               <label className='aligne-like'><AiFillLike size={15}/> {item.aggregateLikes}</label>
+              
               </div>
             </div>
             </Link>
