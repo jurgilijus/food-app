@@ -28,11 +28,12 @@ function Searched() {
         searchedRecipes.map((item) => {
             return(
               <div key={item.id}>
-              <Link to={'/recipes/' + item.id} className='cuisine-card'>
-                <div>
+              <Link to={'/recipes/' + item.id}>
+                <div className='cuisine-card'>
                     <img src={item.image} alt={item.title} className='cuisine-img'/>
-                    <h5>{item.title}</h5>
+                    <h5 className='cuisine-h5'>{item.title}</h5>
                 </div>
+                {console.log(item)}
               </Link>
           
               </div>
